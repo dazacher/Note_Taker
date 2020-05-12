@@ -19,7 +19,7 @@ app.get("/", function (req, res) {
 
 app.get("/notes", function (req, res) {
     console.log(`/notes called`);
-    res.sendFile(path.join(__dirname, "/Develop/public//assets/html/notes.html"))
+    res.sendFile(path.join(__dirname, "/Develop/public/assets/html/notes.html"))
 });
 
 app.get("/api/notes", function (req, res) {
@@ -52,10 +52,10 @@ app.get("*", function (req, res) {
 
 app.post("/api/notes", function (req, res) {
     console.log("POST /api/notes called");
-    console.log(notes);
+    // console.log(notes);
     const newNote = req.body;
     newNote.id = uuid();
-    console.log(newNote);
+    // console.log(newNote);
     notes.push(newNote);
 
     fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), function () {
