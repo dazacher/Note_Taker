@@ -7,11 +7,9 @@ cache:
   directories:
   - node_modules
 before_install:
-- npm update
+  - npm update
 install:
-- npm install
+  - npm install
 deploy:
-  provider: heroku
   api_key:
-    secure: 149b0ade-1fd0-4a71-a14f-6dc7855c13c1
-  app: note-taker-das
+    secure: rjYLKWPLS20/rmBlWxS5Zk3jmwJPaYmXIAXwcAw13K2pWr8yluEeQ87rDCnbXPqhohelxMNp/MDQEnXsTc1J3/uQZBoNTguXLe+ZzJOvs0TKrOyGhy7ExGn/zK27GhSiehsKXHoo+B/yOwkYAGQ4a1MmtUbrVf/l8YhxXwD58VhG4yg8Brc1kDycBojeY2hBO31CBpTGMdwBme4zhx5huwaG6JwcHSwryeVk7yCv8rCgbsBKzWX3SpwvacKq2dxHJX6YiNsHf1Mb3mH06qCH3Ik2hMwBalo8dTTvONoYG+GnWUT9Y8VS4dGx/qKOgj0M4UVbDoNyD0x4Jc2CVCP20zf+si/X2rIkosFEG/8vTusif4GUhg2UpF2+0+a2CsLHlJFzVOVME8UThZIWxeICDb2tl49wBaM+1VTs2CrkEuWCmV8oAo5jGidMvqpFeZ+p1r0s+B9qjczIIfBk3pHC56xkffittWBOQYGpaR0j7L/3GS5LYJUoGvnW10gPGzbvLcIi4vfjFDfATYp2lNJDho9FjRbTbgx0cuFpo416pvp8Aorxb6rdjqEjc5xSyGJtIfYiAufXqn5GTlhQaEWaRPjreYaeQbJES9lOZKuqnre+5GjT+gM0IAsx98WnNU3JGEsPywTlfEaB5GJOqF/2VPANHukAjwjq9IgoRujwFsY=
