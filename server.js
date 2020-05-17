@@ -47,7 +47,7 @@ app.get("/api/notes/:id", function (req, res) {
 
 app.get("*", function (req, res) {
     console.log(`/ called`);
-    res.sendFile(path.join(__dirname, "/Develop/public/html/index.html"))
+    res.sendFile(path.join(__dirname, "/Develop/public/assets/html/index.html"))
 });
 
 app.post("/api/notes", function (req, res) {
