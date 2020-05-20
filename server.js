@@ -52,34 +52,44 @@ app.get("*", function (req, res) {
 
 app.post("/api/notes", function (req, res) {
     console.log("POST /api/notes called");
-    // console.log(notes);
-    const newNote = req.body;
-    newNote.id = uuid();
-    // console.log(newNote);
-    notes.push(newNote);
+    fs.readFile("./Develop/db/db.json", "Utf-8", function (err, data) {
+        var notes = JSON.parse(data);
+        console.log(notes);
+        // const newNote = { title, text, id: uuid() };
+        const newNote = req.body;
+        console.log("newNote-----------------------------------------------")
+        console.log(newNote);
+        newNote.id = uuid();
 
-    fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), function () {
-        res.json(newNote);
+        notes.push(newNote);
+        console.log(notes);
+        fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), function () {
+            res.json(newNote);
+        })
     })
 });
 
 app.delete("/api/notes/:id", function (req, res) {
+    console.log("/api/notes/:id called");
+
     fs.readFile("./Develop/db/db.json", "Utf-8", function (err, data) {
-        if (err) throw err;
 
         var notes = JSON.parse(data);
         console.log(notes);
-
+        notes = notes.filter(note => note.id != req.params.id);
+        // notes = filteredNotes;
         // Delete the note with the .splice function
-        for (i = 0; i < notes.length; i++) {
-            console.log(notes[i].id);
-            if (notes[i].id === req.params.id) {
-                notes.splice(i, 1)
-            }
-        }
+        // for (i = 0; i < notes.length; i++) {
+        //     console.log(notes[i].id);
+        //     if (notes[i].id === req.params.id) {
+        //         notes.splice(i, 1)
+        //     }
+        // }
         fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), function () {
             res.json(notes);
-        });
+        })
+
+        if (err) throw err;
         console.log(notes);
     });
 
